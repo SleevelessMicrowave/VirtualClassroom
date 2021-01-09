@@ -1,12 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 namespace Mirror.Examples.Tanks
 {
     public class Tank : NetworkBehaviour
     {
-        private bool sitting = false;
-
         [Header("Components")]
         public NavMeshAgent agent;
         public Animator animator;
@@ -32,26 +30,7 @@ namespace Mirror.Examples.Tanks
             float vertical = Input.GetAxis("Vertical");
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             agent.velocity = forward * Mathf.Max(vertical, 0) * agent.speed;
-            //animator.SetBool("Moving", agent.velocity != Vector3.zero);
-
-            if (agent.velocity != new Vector3(0, 0, 0))
-            {
-                animator.SetBool("Walk", true);
-                //Debug.Log("here");
-            }
-            else
-                animator.SetBool("Walk", false);
-
-            if (!sitting && Input.GetKeyDown("space"))
-            {
-                animator.SetBool("Sit", true);
-                sitting = true;
-            }
-            else if (sitting && Input.GetKeyDown("space"))
-            {
-                animator.SetBool("Sit", false);
-                sitting = false;
-            }
+            animator.SetBool("Moving", agent.velocity != Vector3.zero);
 
             // shoot
             if (Input.GetKeyDown(shootKey))
@@ -73,7 +52,7 @@ namespace Mirror.Examples.Tanks
         [ClientRpc]
         void RpcOnFire()
         {
-            //animator.SetTrigger("Shoot");
+            animator.SetTrigger("Shoot");
         }
     }
 }
