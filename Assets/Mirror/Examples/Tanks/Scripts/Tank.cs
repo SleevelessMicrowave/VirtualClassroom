@@ -63,10 +63,10 @@ namespace Mirror.Examples.Tanks
             }
 
             // shoot
-            if (Input.GetKeyDown(shootKey))
+            /*if (Input.GetKeyDown(shootKey))
             {
                 CmdFire();
-            }
+            }*/
         }
 
         // this is called on the server
