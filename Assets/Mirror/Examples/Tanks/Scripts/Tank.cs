@@ -19,6 +19,15 @@ namespace Mirror.Examples.Tanks
         public GameObject projectilePrefab;
         public Transform projectileMount;
 
+        public GameObject chat;
+
+        /*void Start()
+        {
+            
+            GameObject chatBox = Instantiate(chat, chat.transform.position, chat.transform.rotation);
+            NetworkServer.Spawn(chat);
+        }*/
+
         void Update()
         {
             // movement for local player
