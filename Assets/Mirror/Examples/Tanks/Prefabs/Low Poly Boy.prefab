@@ -416,8 +416,9 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 6709530808772062288}
+        m_TargetAssemblyTypeName: DapperDino.Mirror.Tutorials.Chat.ChatBehaviour,
+          Assembly-CSharp
         m_MethodName: Send
         m_Mode: 0
         m_Arguments:
